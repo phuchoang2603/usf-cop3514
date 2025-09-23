@@ -1,0 +1,61 @@
+# Written by Jing Wang for Program Design
+# This is a Unix shell script that will be used to test project 3.
+# To use the script, copy it into the same directory as your scource file
+# Set execute permission for the file by issuing the command:
+# chmod +x try_project3_array1
+# Compile your program, producing a.out as the executable
+# To run the script, type 
+# ./try_project3_array1
+# The user input from the script will not be shown on the screen.
+# Compare the results from your program with the expected results on the test cases.
+echo '===================================================='
+./a.out <<-EndOfInput
+8
+6 2 17 3 9 17 2 8
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter the length of the input array: 8'
+echo 'Enter the array elements: 6 2 17 3 9 17 2 8'
+echo 'Output: no'
+echo '===================================================='
+./a.out <<-EndOfInput
+5
+3 8 9 16 17
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter the length of the input array: 5'
+echo 'Enter the array elements: 3 8 9 16 17'
+echo 'Output: yes'
+echo '===================================================='
+./a.out <<-EndOfInput
+4
+2 11 22 27
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter the length of the input array: 4'
+echo 'Enter the array elements: 2 11 22 27'
+echo 'Output: no'
+echo '===================================================='
+./a.out <<-EndOfInput
+4
+19 10 13 92
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter the length of the input array: 4'
+echo 'Enter the array elements: 19 10 13 92'
+echo 'Output: no'
+echo '===================================================='
+./a.out <<-EndOfInput
+4
+9 10 13 92
+EndOfInput
+echo '----------------------------------------------------'
+echo 'Expected:'
+echo 'Enter the length of the input array: 4'
+echo 'Enter the array elements: 9 10 13 92'
+echo 'Output: yes'
+echo '===================================================='
