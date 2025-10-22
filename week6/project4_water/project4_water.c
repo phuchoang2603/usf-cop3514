@@ -12,7 +12,7 @@
 double average(double *usage, int n);
 double standard_deviation(double *usage, double avg, int n);
 
-int main(void) {
+int main() {
   double current_month_usage;
   double last_usage[NUM_MONTHS];
   double avg;
