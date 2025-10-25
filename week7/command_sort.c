@@ -3,7 +3,9 @@
 
 void change_type(int argc, char *argv[], int *arr);
 void swap(int *a, int *b);
+int find_largest(int arr[], int n);
 void selection_sort(int arr[], int n);
+void print_array(int arr[], int n);
 
 int main(int argc, char *argv[]) {
   int arr[argc - 1];
@@ -11,9 +13,7 @@ int main(int argc, char *argv[]) {
   change_type(argc, argv, arr);
   selection_sort(arr, argc - 1);
 
-  for (int i = 0; i < argc - 1; i++) {
-    printf("%d ", arr[i]);
-  }
+  print_array(arr, argc - 1);
 
   return 0;
 }
@@ -32,22 +32,37 @@ void swap(int *a, int *b) {
   *b = temp;
 }
 
-// Perform selection sort on the arr
-void selection_sort(int arr[], int n) {
-  int i, j, min_idx;
+// find the largest element in the unsorted array
+// until index n of arr
+int find_largest(int arr[], int n) {
+  int max_idx = 0;
 
-  // one by one move boundary of unsorted array
-  for (i = 0; i < n - 1; i++) {
-    // find the minimum element in the unsorted array
-    min_idx = i;
-    for (j = i + 1; j < n; j++) {
-      if (arr[j] < arr[min_idx]) {
-        min_idx = j;
-      }
+  for (int i = 1; i < n; i++) {
+    if (arr[i] > arr[max_idx]) {
+      max_idx = i;
     }
+  }
 
-    // swap the found minimum element with the first element
-    // of the unsorted array
-    swap(&arr[min_idx], &arr[i]);
+  return max_idx;
+}
+
+// Perform selection sort on the arr,
+// recursion from the end to the begin of the arr
+void selection_sort(int arr[], int n) {
+  if (n == 1)
+    return;
+
+  int max_idx = find_largest(arr, n);
+  if (max_idx < n - 1) {
+    // swap the largest value to the end of the array
+    swap(&arr[max_idx], &arr[n - 1]);
+  }
+  selection_sort(arr, n - 1);
+}
+
+void print_array(int arr[], int n) {
+  printf("\n");
+  for (int i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
   }
 }
